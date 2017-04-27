@@ -38,14 +38,14 @@ A Class used to quickly draw graphs given a function and its limit
 ```javascript
 // Variant 1
 let graph = new Grapher({
-	f:(x)=>x*x,				// Required
+	f:(x)=>x*x,			// Not required, but it won't draw if you ommit this
 	rangeX: [0,2],			// Optional, default: [0, 1]
 	rangeY: [0,4],			// Optional, default: [0, 1]
-	width: 75,				// Optional, default: 49
-	height: 50,				// Optional, default: 31
-	wrapper: document.body,	// Optional, default: document.body
+	width: 75,			// Optional, default: 49
+	height: 50,			// Optional, default: 31
+	wrapper: document.body,		// Optional, default: document.body
 	pixelated: false,		// Optional, default: false
-	left: 0					// Optional, default: 0
+	left: 0				// Optional, default: 0
 });
 
 // Variant 2
@@ -56,7 +56,7 @@ let my_second_graph = new Grapher({
 	maxX:2,
 	minY:myFunc(-2),	// same as rangeY but only one axis is set
 	maxY:myFunc(2),
-	pixelated: true,
+	pixelated: true,	// pixelated is generally faster to render
 	borderless: true,	// hides 3px border (very crude-looking, but width becomes accurate)
 	left: "84px",
 	width: 55
