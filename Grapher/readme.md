@@ -13,21 +13,21 @@ A Class used to quickly draw graphs given a function and its limit
 
 ```C#
 // Methods
-	Grapher(object config) // Constructor
+	Grapher(object config)		// Constructor
 	setLeft(string left)
 	setSize(int width, int height)
 	setRange(float minX, float maxX, float minY, float maxY)
-	setFunction(function f) // Redraws with given function (Note: keeps past range)
-	changeFunction(function f) // Same as above
-	drawFunction(function f) // Same as above
+	setFunction(function f)		// Redraws with given function (Note: keeps past range)
+	changeFunction(function f)	// Same as above
+	drawFunction(function f)	// Same as above
 // Properties
 	.wrapper (HTMLDivElemnt)
 	.canvas (HTMLCanvasElement)
 	.ctx (CanvasRenderingContext2d)
-	.borderless (bool)	// Must run setSize() after changing manually
+	.borderless (bool)		// Must run setSize() after changing manually
 	.pixelated (bool)		// Must run drawFunction() after changing manually
 	.minX (float)			// Same as above
-	.maxX (float)				// Same...
+	.maxX (float)			// Same...
 	.minY (float)
 	.maxY (float)
 // Note: All methods return itself (or throw error) so that you can cascate functions.
