@@ -2,7 +2,7 @@
 
 A Class used to quickly draw graphs given a function and its limit
 
-[Click here to run the demo](https://rawgit.com/GuilhermeRossato/JsAppHelpers/master/Grapher/demo.html)
+[Click here to run the demo](https://rawgit.com/GuilhermeRossato/JsAppHelpers/master/Grapher/demo.html)  
 [Get the source here](https://github.com/GuilhermeRossato/JsAppHelpers/tree/master/Grapher/Grapher.js)
 
 # Preview
