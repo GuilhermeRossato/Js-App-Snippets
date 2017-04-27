@@ -182,5 +182,6 @@ Grapher.prototype = {
 			}
 			ctx.stroke();
 		}
+		return this;
 	}
 }
