@@ -1,0 +1,12 @@
+<script src="CookieFunctions.js.js"></script>
+<script>
+let name = getCookie("username");
+	if (name != "") {
+		alert(`Hello ${user}`);
+	} else {
+		name = prompt("Enter your name:", "");
+		if (name != undefined && name != "" && name != null) {
+			setCookie("username", name, 30); // Saves the cookie for 30 days
+		}
+	}
+</script>
