@@ -1,0 +1,15 @@
+<script src="Performancer.js"></script>
+<script>
+	let performancer = new Performancer({
+		compact: false
+	});
+	let before = performance.now();
+	function update() {
+		let after = performance.now();
+		let delay = (20+60*Math.pow(Math.random(),3))
+		performancer.update(after - before);
+		setTimeout(update, Math.floor(delay));
+		before = after;
+	}
+	update();
+</script>

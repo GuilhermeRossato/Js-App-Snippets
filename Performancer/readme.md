@@ -1,0 +1,71 @@
+# Performancer
+
+A fast tool to graphically display delay in milliseconds of an update function. Can also be interpreted as a continous array of numbers between 0 and 256.
+
+[Click here to run the demo](https://rawgit.com/GuilhermeRossato/JsAppHelpers/master/Performancer/demo.html)  
+[Get the source here](https://github.com/GuilhermeRossato/JsAppHelpers/tree/master/Performancer/Performancer.js)
+
+# Preview
+
+![Visual Example](https://rawgit.com/GuilhermeRossato/JsAppHelpers/master/Performancer/demo.gif);
+
+Note: You cannot resize the element without editing the whole code due to performance constraints.
+
+# Class Specification
+
+```C#
+// Methods
+	Performancer(object config)	// Constructor
+	setLeft(int/string left)	// Recalculates the style with a specific "left: {argument}" entry, instead of the default: 0
+	update(int delta)			// Display the number at the next available position
+	attach(element)				// Attaches wrapper to a specific HTMLDomElement
+	reset()						// Clears the canvas
+// Properties
+	.wrapper (HTMLDivElemnt)
+// Note: All methods (except update) return itself (or throw error) so that you can cascate functions.
+```
+
+# Usage Example
+
+```javascript
+// Variant 1
+let performancer = new Performancer();
+performancer.update(16);
+performancer.update(17);
+performancer.update(16);
+performancer.update(14);
+performancer.update(150);
+performancer.update(16);
+performancer.update(32);
+performancer.update(64);
+performancer.update(82);
+performancer.update(17);
+
+// Variant 2
+let performancer = new Performancer({
+	left: "1.5em",
+	zIndex: 2,
+	compact: true,
+	unclickable: true,
+	noLabel: true,
+	wrapper: document.body
+});
+performancer.update(300);
+performancer.update(150);
+performancer.update(75);
+performancer.update(25);
+performancer.update(1);
+
+// Variant 3
+let performancer = new Performancer({
+	compact: true,
+	onCompactChange: function(compact) {
+		setCookie("is_compact", compact?"1":"0", 30);
+	}
+});
+startTime = performance.now();
+setInterval(()=>performancer.update(-startTime+(startTime = performance.now())), 75);
+
+// Observation: Each variant is a possibility, the arguments for config are non-exclusive: each can be used independently from each other.
+// Note: Do not call your variable performance (without the final r), that object is already declared (window.performance)
+```
