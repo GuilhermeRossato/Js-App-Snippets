@@ -1,6 +1,6 @@
 # Grapher
 
-A Class used to quickly draw graphs given a function and its limit
+A tool to quickly draw graphs given a function and its limit
 
 [Click here to run the demo](https://rawgit.com/GuilhermeRossato/JsAppHelpers/master/Grapher/demo.html)  
 [Get the source here](https://github.com/GuilhermeRossato/JsAppHelpers/tree/master/Grapher/Grapher.js)
@@ -17,6 +17,7 @@ A Class used to quickly draw graphs given a function and its limit
 	setLeft(string left)
 	setSize(int width, int height)
 	setRange(float minX, float maxX, float minY, float maxY)
+	attach(element)				// Attaches wrapper to a specific HTMLDomElement
 	setFunction(function f)		// Redraws with given function (Note: keeps past range)
 	changeFunction(function f)	// Same as above
 	drawFunction(function f)	// Same as above

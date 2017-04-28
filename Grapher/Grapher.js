@@ -1,6 +1,11 @@
-/*
+/*!
+ * Quickly draw graphs for functions given its limits
+ *
  * @name	Grapher Class
  * @author	Guilherme Rossato
+ * @link	https://github.com/GuilhermeRossato/JsAppHelpers/tree/master/Grapher
+ * @year	2017
+ *
  */
 
 function Grapher(config = {}) {
@@ -23,29 +28,44 @@ function Grapher(config = {}) {
 		(config.maxY === undefined)			&& (config.maxY = 1);
 		(config.f === undefined)			&& (config.f = config.generate);
 	}());
-	this.wrapper = document.createElement("div");
 	this.borderless = config.borderless;
-	this.setLeft(config.left);
-	this.canvas = document.createElement("canvas");
-	this.canvas.width = config.width;
-	this.canvas.height = config.height;
-	this.setSize(config.width, config.height);
-	this.ctx = this.canvas.getContext("2d");
 	this.pixelated = config.pixelated;
 	this.minX = config.minX;
 	this.maxX = config.maxX;
 	this.minY = config.minY;
 	this.maxY = config.maxY;
+	/* Document Elements */
+	this.wrapper = document.createElement("div");
+	this.domElement = this.wrapper;
+	this.canvas = document.createElement("canvas");
+	this.ctx = this.canvas.getContext("2d");
+	/* Styles */
+	this.canvas.width = config.width;
+	this.canvas.height = config.height;
+	this.setLeft(config.left);
+	this.setSize(config.width, config.height);
+	/* Appends */
 	this.wrapper.appendChild(this.canvas);
-	if (!config.wrapper) {
+	
+	this.attach = function(object) {
+		if (wrapper.parentNode)
+			wrapper.parentNode.removeChild(wrapper);
+		if (object && object.appendChild)
+			object.appendChild(wrapper);
+		else
+			console.warn("Unable to append");
+		return this;
+	}
+
+	if (config.wrapper === null) {
 		setTimeout(()=>{
 			if (!config.wrapper && !document.body)
-				throw new Error("Unhandled appending");
+				console.warn("Unable to append");
 			else if (config.wrapper)
 				config.wrapper.appendChild(this.wrapper);
 			else
 				document.body.appendChild(this.wrapper);
-		},10);
+		}, 10);
 	} else {
 		config.wrapper.appendChild(this.wrapper);
 	}
