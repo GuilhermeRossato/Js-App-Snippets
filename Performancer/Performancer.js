@@ -3,6 +3,8 @@
  * Commonly used to display millisecond delay between frames
  * Note: Only usefull if the ".update" function is called at least 5 times a second.
  *
+ * Heavily inspired on Stats from mrdoobs (https://github.com/mrdoob/stats.js/)
+ *
  * @name	Performancer Class
  * @author	Guilherme Rossato
  * @link	https://github.com/GuilhermeRossato/JsAppHelpers/tree/master/Performancer
