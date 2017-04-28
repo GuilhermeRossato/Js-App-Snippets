@@ -2,14 +2,14 @@
 
 A fast tool to graphically display delay in milliseconds of an update function. Can also be interpreted as a continous array of numbers between 0 and 256.
 
+Basically a faster, millisecond-only version of the performance monitor [stats.js](https://github.com/mrdoob/stats.js/) made originally by mrdoob
+
 [Click here to run the demo](https://rawgit.com/GuilhermeRossato/JsAppHelpers/master/Performancer/demo.html)  
 [Get the source here](https://github.com/GuilhermeRossato/JsAppHelpers/tree/master/Performancer/Performancer.js)
 
 # Preview
 
 ![Visual Example](https://rawgit.com/GuilhermeRossato/JsAppHelpers/master/Performancer/demo.gif);
-
-Note: You cannot resize the element without editing the whole code due to performance constraints.
 
 # Class Specification
 
@@ -58,7 +58,8 @@ performancer.update(1);
 
 // Variant 3
 let performancer = new Performancer({
-	compact: true,
+	compact: (getCookie("is_compact") !== "0"),
+	left:81,	// 81 = hardcoded width (75 canvas + 6 wrapper padding)
 	onCompactChange: function(compact) {
 		setCookie("is_compact", compact?"1":"0", 30);
 	}
@@ -67,5 +68,5 @@ startTime = performance.now();
 setInterval(()=>performancer.update(-startTime+(startTime = performance.now())), 75);
 
 // Observation: Each variant is a possibility, the arguments for config are non-exclusive: each can be used independently from each other.
-// Note: Do not call your variable performance (without the final r), that object is already declared (window.performance)
+// Note: Do not call your variable "performance" (without the final r), that object is already declared (window.performance)
 ```
