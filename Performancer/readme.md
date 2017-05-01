@@ -9,17 +9,17 @@ Basically a faster, millisecond-only version of the performance monitor [stats.j
 
 # Preview
 
-![Visual Example](https://rawgit.com/GuilhermeRossato/JsAppHelpers/master/Performancer/demo.gif);
+![Visual Example](https://rawgit.com/GuilhermeRossato/JsAppHelpers/master/Performancer/demo.gif)
 
 # Class Specification
 
 ```C#
 // Methods
 	Performancer(object config)	// Constructor
-	setLeft(int/string left)	// Recalculates the style with a specific "left: {argument}" entry, instead of the default: 0
-	update(int delta)			// Display the number at the next available position
-	attach(element)				// Attaches wrapper to a specific HTMLDomElement
-	reset()						// Clears the canvas
+	.setLeft(int/string left)	// Recalculates the style with a specific "left: {argument}" entry
+	.update(int delta)		// Display the number at the next available position
+	.attach(element)			// Attaches wrapper to a specific HTMLDomElement
+	.reset()				// Clears the canvas
 // Properties
 	.wrapper (HTMLDivElemnt)
 // Note: All methods (except update) return itself (or throw error) so that you can cascate functions.
@@ -43,12 +43,12 @@ performancer.update(17);
 
 // Variant 2
 let performancer = new Performancer({
-	left: "1.5em",
-	zIndex: 2,
-	compact: true,
-	unclickable: true,
-	noLabel: true,
-	wrapper: document.body
+	left: "1.5em",				// Default is 0
+	zIndex: 2,				// Default is 0
+	compact: true,				// Default is false
+	unclickable: true,			// Default is false
+	hasLabel: false,			// Default is true
+	wrapper: document.body		// Default is document.body already
 });
 performancer.update(300);
 performancer.update(150);
@@ -59,7 +59,7 @@ performancer.update(1);
 // Variant 3
 let performancer = new Performancer({
 	compact: (getCookie("is_compact") !== "0"),
-	left:81,	// 81 = hardcoded width (75 canvas + 6 wrapper padding)
+	left:81,			// 81 is the hardcoded width (75px canvas + 6px wrapper padding)
 	onCompactChange: function(compact) {
 		setCookie("is_compact", compact?"1":"0", 30);
 	}

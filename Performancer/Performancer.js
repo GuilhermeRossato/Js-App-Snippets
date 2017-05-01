@@ -18,7 +18,7 @@ function Performancer(config = {}) {
 		(config.left === undefined)				&& (config.left = 0);
 		(config.compact === undefined)			&& (config.compact = false);
 		(config.unclickable === undefined)		&& (config.unclickable = false);
-		(config.noLabel === undefined)		&& (config.noLabel = false);
+		(config.hasLabel === undefined)			&& (config.hasLabel = false);
 		(config.onCompactChange === undefined)	&& (config.onCompactChange = undefined);
 		(config.zIndex === undefined)			&& (config.zIndex = undefined);
 	}());
@@ -63,7 +63,7 @@ function Performancer(config = {}) {
 		image-rendering: pixelated;
 	`);
 	span.setAttribute("style", `
-		display: ${(config.noLabel?"none":"inline")};
+		display: ${(config.hasLabel?"inline":"none")};
 		color: #00FF00;
 		height: 11px;
 		text-align: center;

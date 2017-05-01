@@ -7,7 +7,7 @@ A tool to quickly draw graphs given a function and its limit
 
 # Preview
 
-![Visual Example](https://rawgit.com/GuilhermeRossato/JsAppHelpers/master/Grapher/demo.png);
+![Visual Example](https://rawgit.com/GuilhermeRossato/JsAppHelpers/master/Grapher/demo.png)
 
 # Class Specification
 
